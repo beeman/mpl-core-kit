@@ -7,11 +7,18 @@ export function AboutFeature() {
         <CardHeader className="gap-2">
           <CardTitle className="text-xl font-semibold tracking-tight">About</CardTitle>
           <CardDescription className="max-w-2xl text-sm/6">
-            Mpl Core Kit is a starter for Solana apps that need wallet connection, signing flows, cluster switching, and
+            MPL Core Kit is a starter for Solana apps that need wallet connection, signing flows, cluster switching, and
             a polished React UI from day one.
           </CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-3 sm:grid-cols-3">
+        <CardContent className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="rounded-lg border border-border/60 bg-muted/20 p-4">
+            <div className="text-sm font-medium">Core asset workflows</div>
+            <div className="mt-1 text-xs/relaxed text-muted-foreground">
+              Includes a create flow for minting Core assets and collections with the vendored kit client and
+              configurable plugins.
+            </div>
+          </div>
           <div className="rounded-lg border border-border/60 bg-muted/20 p-4">
             <div className="text-sm font-medium">Wallet-ready flows</div>
             <div className="mt-1 text-xs/relaxed text-muted-foreground">

@@ -7,6 +7,8 @@ import type { Address } from '@solana/addresses'
 import type { Rpc, SolanaRpcApi } from '@solana/rpc'
 import type { Base58EncodedBytes } from '@solana/rpc-types'
 
+import { getBase64Encoder } from '@solana/kit'
+
 import { type AssetV1, type CollectionV1, getAssetV1Decoder, getCollectionV1Decoder, Key } from '../generated'
 import { MPL_CORE_PROGRAM_ADDRESS } from '../generated/programs'
 
@@ -84,7 +86,7 @@ export async function fetchAssetsByCollection(
       }
       pubkey: Address
     }) => {
-      const data = new Uint8Array(Buffer.from(item.account.data[0], 'base64'))
+      const data = decodeBase64(item.account.data[0])
       return {
         address: item.pubkey,
         data: decoder.decode(data),
@@ -135,7 +137,7 @@ export async function fetchAssetsByOwner(rpc: Rpc<SolanaRpcApi>, owner: Address)
       }
       pubkey: Address
     }) => {
-      const data = new Uint8Array(Buffer.from(item.account.data[0], 'base64'))
+      const data = decodeBase64(item.account.data[0])
       return {
         address: item.pubkey,
         data: decoder.decode(data),
@@ -196,7 +198,7 @@ export async function fetchAssetsByUpdateAuthority(
       }
       pubkey: Address
     }) => {
-      const data = new Uint8Array(Buffer.from(item.account.data[0], 'base64'))
+      const data = decodeBase64(item.account.data[0])
       return {
         address: item.pubkey,
         data: decoder.decode(data),
@@ -250,7 +252,7 @@ export async function fetchCollectionsByUpdateAuthority(
       }
       pubkey: Address
     }) => {
-      const data = new Uint8Array(Buffer.from(item.account.data[0], 'base64'))
+      const data = decodeBase64(item.account.data[0])
       return {
         address: item.pubkey,
         data: decoder.decode(data),
@@ -299,6 +301,10 @@ function decodeBase58Value(str: string): bigint {
     }
     return value * BASE58 + BigInt(nextDigit)
   }, 0n)
+}
+
+function decodeBase64(value: string): Uint8Array {
+  return new Uint8Array(getBase64Encoder().encode(value))
 }
 
 // Simple base58 encoder
