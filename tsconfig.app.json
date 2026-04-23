@@ -25,7 +25,9 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@metaplex-foundation/mpl-core-kit": ["./lib/index.ts"],
+      "@metaplex-foundation/mpl-core-kit/*": ["./lib/*"]
     }
   },
   "include": ["src"]

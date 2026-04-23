@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@metaplex-foundation/mpl-core-kit': fileURLToPath(new URL('./lib', import.meta.url)),
     },
   },
 })

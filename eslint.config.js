@@ -12,7 +12,7 @@ import tseslint from 'typescript-eslint'
 import pluginQuery from '@tanstack/eslint-plugin-query'
 
 export default defineConfig([
-  globalIgnores(['dist', 'tmp']),
+  globalIgnores(['dist', 'lib/generated/**', 'tmp']),
   {
     extends: [
       js.configs.recommended,
@@ -59,6 +59,20 @@ export default defineConfig([
         createTypeScriptImportResolver({
           project: './tsconfig.json',
         }),
+      ],
+    },
+  },
+  {
+    files: ['lib/**/*.{js,ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
       ],
     },
   },
