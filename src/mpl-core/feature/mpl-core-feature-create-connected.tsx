@@ -21,8 +21,8 @@ import { MplCoreUiCreateAssetFields } from '@/mpl-core/ui/mpl-core-ui-create-ass
 import { MplCoreUiCreateSubmit } from '@/mpl-core/ui/mpl-core-ui-create-submit'
 import { MplCoreUiPluginConfigurator } from '@/mpl-core/ui/mpl-core-ui-plugin-configurator'
 import { useSolanaClient } from '@/solana/data-access/use-solana-client'
+import { getErrorMessage } from '@/solana/ui/solana-ui-error'
 import { SolanaUiExplorerLink } from '@/solana/ui/solana-ui-explorer-link'
-import { getErrorMessage } from '@/wallet/ui/wallet-ui-error'
 
 export function MplCoreFeatureCreateConnected({ account }: SolanaUiWalletGuardRenderProps) {
   const client = useSolanaClient()

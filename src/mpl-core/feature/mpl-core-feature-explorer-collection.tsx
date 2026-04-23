@@ -10,7 +10,7 @@ import { MplCoreFeatureExplorerCollectionAssets } from '@/mpl-core/feature/mpl-c
 import { MplCoreUiExplorerCollectionDetails } from '@/mpl-core/ui/mpl-core-ui-explorer-collection-details'
 import { MplCoreUiExplorerMetadataCard } from '@/mpl-core/ui/mpl-core-ui-explorer-metadata-card'
 import { MplCoreUiExplorerPluginDetails } from '@/mpl-core/ui/mpl-core-ui-explorer-plugin-details'
-import { getErrorMessage } from '@/wallet/ui/wallet-ui-error'
+import { getErrorMessage } from '@/solana/ui/solana-ui-error'
 
 export function MplCoreFeatureExplorerCollection() {
   const { mint = '' } = useParams()

@@ -1,12 +1,11 @@
+import type { ReactNode } from 'react'
+
 import {
   isWalletStandardError,
   WALLET_STANDARD_ERROR__FEATURES__WALLET_ACCOUNT_CHAIN_UNSUPPORTED,
   WALLET_STANDARD_ERROR__FEATURES__WALLET_ACCOUNT_FEATURE_UNIMPLEMENTED,
   WALLET_STANDARD_ERROR__FEATURES__WALLET_FEATURE_UNIMPLEMENTED,
 } from '@wallet-ui/react'
-import { type ReactNode } from 'react'
-
-import { Alert, AlertDescription, AlertTitle } from '@/core/ui/alert'
 
 export function getErrorMessage(err: unknown, fallbackMessage: ReactNode): ReactNode {
   if (isWalletStandardError(err, WALLET_STANDARD_ERROR__FEATURES__WALLET_ACCOUNT_FEATURE_UNIMPLEMENTED)) {
@@ -44,13 +43,4 @@ export function getErrorMessage(err: unknown, fallbackMessage: ReactNode): React
     return String(err.message)
   }
   return fallbackMessage
-}
-
-export function WalletUiError({ error, title }: { error: unknown; title?: string }) {
-  return (
-    <Alert>
-      <AlertTitle className="text-red-500">{title ?? 'We encountered the following error'}</AlertTitle>
-      <AlertDescription>{getErrorMessage(error, 'Unknown error occurred')}</AlertDescription>
-    </Alert>
-  )
 }

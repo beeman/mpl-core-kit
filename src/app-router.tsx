@@ -7,11 +7,7 @@ import { ShellFeature, ShellUiLoader } from '@/shell/feature'
 export const appRouter = createBrowserRouter([
   {
     children: [
-      { element: <Navigate replace to="/wallet" />, index: true },
-      {
-        lazy: () => import('@/about/feature/about-feature'),
-        path: 'about',
-      },
+      { element: <Navigate replace to="/create" />, index: true },
       {
         lazy: () => import('@/mpl-core/feature/mpl-core-feature-create'),
         path: 'create',
@@ -29,18 +25,9 @@ export const appRouter = createBrowserRouter([
         path: 'explorer/:mint',
       },
       {
-        lazy: () => import('@/wallet/feature/wallet-feature'),
-        path: 'wallet',
-      },
-      {
         lazy: () => import('@/shell/feature/shell-not-found-feature'),
         loader: (): ShellNotFoundProps => ({
           links: [
-            {
-              description: 'Learn what this starter includes and how the wallet playground is organized.',
-              title: 'About',
-              to: '/about',
-            },
             {
               description: 'Open the create flow to mint Core assets and collections with the vendored kit client.',
               title: 'Create',
@@ -51,11 +38,6 @@ export const appRouter = createBrowserRouter([
               title: 'Explorer',
               to: '/explorer',
             },
-            {
-              description: 'Open the wallet screen if you were looking for connection and signing tools.',
-              title: 'Wallet',
-              to: '/wallet',
-            },
           ],
         }),
         path: '*',
@@ -64,10 +46,8 @@ export const appRouter = createBrowserRouter([
     element: (
       <ShellFeature
         links={[
-          { label: 'About', to: '/about' },
           { label: 'Create', to: '/create' },
           { label: 'Explorer', to: '/explorer' },
-          { label: 'Wallet', to: '/wallet' },
         ]}
       />
     ),

@@ -9,7 +9,7 @@ import { useMplCoreJsonPreviewQuery } from '@/mpl-core/data-access/use-mpl-core-
 import { MplCoreUiExplorerAssetDetails } from '@/mpl-core/ui/mpl-core-ui-explorer-asset-details'
 import { MplCoreUiExplorerMetadataCard } from '@/mpl-core/ui/mpl-core-ui-explorer-metadata-card'
 import { MplCoreUiExplorerPluginDetails } from '@/mpl-core/ui/mpl-core-ui-explorer-plugin-details'
-import { getErrorMessage } from '@/wallet/ui/wallet-ui-error'
+import { getErrorMessage } from '@/solana/ui/solana-ui-error'
 
 export function MplCoreFeatureExplorerAsset() {
   const { mint = '' } = useParams()
